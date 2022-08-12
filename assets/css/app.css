@@ -28,6 +28,63 @@
     --nnegro: #18162a;
   }
 }
+
+@media only screen and (max-width: 600px) {
+
+    .header-mobile{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        max-height: none;
+        position:static;
+    }
+
+    .rrss ul{
+        width: 100%;
+
+    }
+    header nav ul{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .proyects{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-left{
+       width: 100%;
+       display: flex;
+       flex-flow: column;
+    }
+
+    .card-right{
+        width: 100%;
+    }
+    .container{
+        display:flex;
+        flex-flow: column ;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+   
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .container{
+        display:flex;
+        flex-flow: row ;
+        margin: 0;
+    }
+}
 /* Opcional */
 /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
 /* Opcional */
@@ -350,12 +407,7 @@ hr{
 
 }
 
-.container{
-    display:flex;
-    flex-flow: row nowrap;
-    max-width: 1200px;
-    margin: 0;
-}
+
 .container .card{
     background-color: var(--blanco);
     margin: -2em 1em 4em 1em;
