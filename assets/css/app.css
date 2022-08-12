@@ -1,0 +1,576 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Zetta:wght@100;200;300;400;500;600;700;800;900&display=swap');  
+
+
+/*Con este reset vamos a resolver:
+    👉 Unificar el uso de Custom Properties
+    👉 Problemas de box-model más generales
+    👉 Problemas con imagenes, vídeos e iconos svg
+    👉 Problemas con tipografías y etiquetas input en formularios
+    👉 Unificar la tipografía de todas las etiquetas de una web
+
+*/
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #18162a;
+  --primary: #4b4ae4;
+  --secondary: #18162a;
+  --blanco: #f2f2f2;
+  /* Tipografía */
+  --tipo-principal:  'Jost', sans-serif;
+  --tipo-secundaria: 'Blinker', sans-serif;
+  --tipo-tres: font-family: 'Lexend Zetta', sans-serif;
+}
+
+/* Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nnegro: #18162a;
+  }
+}
+/* Opcional */
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  letter-spacing:.3em;
+  transition: all .3s;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+a:hover{
+    color: var(--primary);
+    transition: all .3s;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+  font-family: var(--tipo-secundaria);
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--tipo-secundaria);
+}
+
+
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  /* opcional */
+  line-height: 1.4em;
+  /* opcional */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+header{
+    background-color: var(--blanco);
+    display:flex;
+    flex-flow:row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 15vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    
+}
+header .rrss{}
+.rrss ul{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.rrss ul li{
+    margin: 1em;
+}
+.rrss ul li a{
+    font-size: .9em;
+}
+header .logo{
+    width: 15%;
+}
+.logo img{}
+header nav{
+
+}
+nav ul {
+    display:flex;
+    flex-flow: row nowrap;
+}
+nav ul li{
+    margin:1em;
+}
+nav ul li a{
+    font-size:.9em;
+}
+.active{
+    color: var(--tipo-tres);
+}
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    min-height:10vh;
+    align-items: center;
+    justify-content: center;
+    background: #41295a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10em;
+}
+
+footer a{
+    font-size: 0.8em;
+    color: var(--blanco);
+    font-family: var(--tipo-principal);
+}
+
+footer p{
+    color: var(--blanco);
+    font-size: .7em;
+}
+
+
+hr{
+    border-bottom: 1px solid #dfdfdf;
+    margin: 1em 0em;
+}
+
+.slider-container{
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--blanco);
+    z-index:-1;
+    padding-top: 5em;
+}
+
+.slider-container .slider{
+    min-height: 80vh;
+    width:100%;
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+ 
+}
+.app{
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+    background: #4b4ae4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B06AB3, #4b4ae4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B06AB3, #4b4ae4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.slider img{
+    width: 17%;
+    position: absolute;
+    animation:move-up 2s ease-in infinite alternate-reverse;
+    -webkit-animation:move-up 2s ease-in infinite alternate-reverse;
+}
+
+.slider .slider-text{
+    display:flex;
+    flex-flow:column;
+    text-align:center;
+}
+
+.slider-text h3{
+    font-size:2em;
+    z-index: 1;
+    user-select: none;
+    animation: move-down 2s ease-in infinite alternate-reverse;
+    -webkit-animation: move-down 2s ease-in infinite alternate-reverse;
+}
+
+.color-onda{
+    animation: anim 10s;
+    -webkit-animation: anim 20s
+    infinite;
+}
+@keyframes anim{
+    from {color: var(--secondary);}
+    to {color: #B06AB3;}
+    
+}
+
+@keyframes move-up{
+    to { transform: translateY(-10px); -webkit-transform: translateY(-10px); -moz-transform: translateY(-10px); -ms-transform: translateY(-10px); -o-transform: translateY(-10px); }
+}
+@keyframes move-down{
+    to { transform: translateY(10px); -webkit-transform: translateY(10px); -moz-transform: translateY(10px); -ms-transform: translateY(10px); -o-transform: translateY(10px); }
+}
+.slider-text h2 {
+    font-size: 6em;
+    font-family: var(--tipo-secundaria);
+    margin-bottom:.3em;
+    font-weight:600;
+    color: var(--blanco);
+    -webkit-text-stroke: 2px grey;
+    user-select: none;
+
+}
+.slider-text h3{
+    font-size: 7em;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    font-family: var(--tipo-tres);
+    user-select: none;
+
+}
+
+.container{
+    display:flex;
+    flex-flow: row nowrap;
+    max-width: 1200px;
+    margin: 0;
+}
+.container .card{
+    background-color: var(--blanco);
+    margin: -2em 1em 4em 1em;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(48 151 150 / 14%) 0px 2px 6px    
+}
+
+.card h2{
+    font-size:2em;
+    font-weight: 700;
+    color: var(--negro);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.card h4{
+    font-size:1em;
+    color: var(--primary);
+    margin: 0em 0em .5em 0em;
+}
+.card-left{
+    padding: 3em;
+}
+.card-left p {
+    max-width: 40vh;
+    max-height: 60vh;
+    hyphens:manual;
+    -webkit-hyphens:manual;
+    -moz-hyphens:manual;
+    -ms-hyphens:manual;
+}
+
+.card-left ul li{
+    margin: 1.5em 1em;
+}
+.card-left ul li a{
+    font-family: var(--tipo-secundaria);
+    font-size: .8em;
+    letter-spacing: .1em
+}
+
+
+.card-text-title{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+.card-right{
+    display: flex;
+    flex-flow: column;
+    padding: 3em;
+}
+.card-right .img-profile{
+    display: block;
+    width:180px;
+    height:180px;
+    overflow: hidden;
+    border-radius: 180px;
+    -webkit-border-radius: 180px;
+    -moz-border-radius: 180px;
+    -ms-border-radius: 180px;
+    -o-border-radius: 180px;
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid #f2f2f2;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    box-shadow: 6px 6px 12px #e0e0e0, -6px -6px 12px #fff;
+}
+.card-right .img-profile img{
+    max-width:100%;
+    height:auto;
+    vertical-align: middle;
+    border: 0;
+}
+.card-right .skill{
+    margin-top:9vh;
+}
+.skill h4{
+    color: var(--negro);
+    font-weight: 600;
+    letter-spacing: .1em;
+}
+.skill ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.skill ul li{
+    margin: 1em;
+    color: #090909;
+    padding: .7em .7em;
+    border-radius: .5em;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+
+    box-shadow: 6px 6px 12px #e0e0e0, -6px -6px 12px #fff;
+}
+.skill ul li:hover{
+    box-shadow: -6px -6px 12px #e0e0e0, 6px 6px 12px #fff;
+    color: var(--primary);
+}
+
+.skill ul li a{
+    font-size: .8em;
+    text-transform: uppercase;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.card-center{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 3em;
+}
+
+.card-center .proyects{
+    display: flex;
+    flex-flow: row wrap;
+}
+.proyects .proyect{
+    display: block;
+    width:30%;
+    height:180px;
+    overflow: hidden;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid #f2f2f2;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    box-shadow: 6px 6px 12px #e0e0e0, -6px -6px 12px #fff;
+}
+.proyect::before,
+.proyect::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     right: 0;
+}
+
+.proyect::before{
+    border-style: solid;
+    border-width: 0 0 50px 50px;
+    border-color: transparent transparent  #6000ff30 transparent;
+    transition:border .25s;
+    -webkit-transition:border .25s;
+    -moz-transition:border .25s;
+    -ms-transition:border .25s;
+    -o-transition:border .25s;
+}
+
+.proyect::after h5{
+    bottom: 50px;
+    right: 50px;
+    color: black;
+    font-size: 12px;
+    opacity: 0;
+}
+
+.proyect:hover::before {
+    border-width: 0 0 250px 250px;
+}
+
+.proyect:hover::after{
+    opacity: 1;
+    transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+}
+
+.proyect-title{
+    margin: auto;
+    color: var(--secondary);
+}
+.proyect:hover{
+    box-shadow: -6px -6px 12px #e0e0e0, 6px 6px 12px #fff;
+
+}
+
+.proyect img{
+    max-width:100%;
+    height:auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+
