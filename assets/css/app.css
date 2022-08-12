@@ -62,6 +62,11 @@
        display: flex;
        flex-flow: column;
     }
+    .card-text-title{
+        display: flex;
+        flex-flow: row;
+        max-width: 100%;
+    }
 
     .card-right{
         width: 100%;
@@ -83,6 +88,13 @@
         display:flex;
         flex-flow: row ;
         margin: 0;
+    }
+
+    .card-text-title{
+        display: flex;
+        flex-flow: column;
+        max-width: 40vh;
+        max-height: 60vh;
     }
 }
 /* Opcional */
@@ -158,6 +170,7 @@ li {
 /* Configuramos anclas suaves */
 html {
   scroll-behavior: smooth;
+  margin-top: 0em;
 }
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
@@ -251,11 +264,44 @@ header{
     align-items: center;
     min-height: 15vh;
     overflow: hidden;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 2;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
     
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--negro);
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    color: var(--blanco);
+}
+  
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+/* .sticky + .app {
+    padding-top: 60px;
+} */
+
+.scroller {
+    height: 600px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+    scroll-snap-align: end;
 }
 header .rrss{}
 .rrss ul{
@@ -275,6 +321,7 @@ header .logo{
 header nav{
 
 }
+
 nav ul {
     display:flex;
     flex-flow: row nowrap;
@@ -410,7 +457,7 @@ hr{
 
 .container .card{
     background-color: var(--blanco);
-    margin: -2em 1em 4em 1em;
+    margin: 2em 1em 4em 1em;
     border-radius: 1em;
     -webkit-border-radius: 1em;
     -moz-border-radius: 1em;
@@ -435,8 +482,7 @@ hr{
     padding: 3em;
 }
 .card-left p {
-    max-width: 40vh;
-    max-height: 60vh;
+
     hyphens:manual;
     -webkit-hyphens:manual;
     -moz-hyphens:manual;
@@ -456,7 +502,7 @@ hr{
 .card-text-title{
     display: flex;
     flex-flow: column;
-    width: 100%;
+    
 }
 
 .card-right{
