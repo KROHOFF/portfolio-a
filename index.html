@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio - Camilo Alejandro.</title>
     <link rel="stylesheet" href="assets/css/app.css">
     <!-- Animaciones Libreria -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 </head>
 <body>
-    <header>
+    <header id="navbar">
         <div class="rrss">
             <ul>
                 <li><a href="https://github.com/KROHOFF">GITHUB</a></li>
@@ -25,44 +25,49 @@
         </div>
         <nav>
             <ul>
-                <li><a class="active" href="#">INICIO</a></li>
+                <li><a class="active" href="#inicio">INICIO</a></li>
                 <li><a href="#sobremi">SOBRE MÍ</a></li>
                 <li><a href="#proyectos">PROYECTOS</a></li>
             </ul>
         </nav>
     </header>
-    <div class="slider-container">
-        <div class="slider">
-            <!-- <h3>Welcome!</h3> -->
-            <img src="assets/img/slider/slider-3.png" alt="background-slider">
-            <div class="slider-text">
-                <h2>DEVE</h2>
-                <h3 class="color-onda" data-text="Loper" >LOPER</h3>
+    <section id="inicio">
+        
+        <div class="slider-container">
+            <div class="slider">
+                <!-- <h3>Welcome!</h3> -->
+                <img src="assets/img/slider/slider-3.png" alt="background-slider">
+                <div class="slider-text">
+                    <h2>DEVE</h2>
+                    <h3 class="color-onda" data-text="Loper" >LOPER</h3>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="app">
         <section id="sobremi">
             <div class="container ">
                 <div class="card card-left">
+                    <h4>Biografia</h4>
+                    <h2>Sobre mí</h2>
+                    <hr>
                     <div class="card-text-title">
-                        <h4>Biografia</h4>
-                        <h2>Sobre mí</h2>
-                        <hr>
+                        
                         <p>
                             Me presento, soy un amante de la programación y el diseño web, 
                             aquí es donde paso la mayor parte de mi tiempo, me gusta plasmar en código lo 
                             que me imagino, así pongo en práctica mis conocimientos y habilidades.
                         </p>
+                        <ul>
+                            <li><a>Chile, Puerto Montt</a></li>
+                            <li><a>18  Agosto 1995</a></li>
+                            <li><a>26 Años</a></li>
+                            <li><a>Ingeniería en informática</a></li>
+                            <li><a>Camilo@highlyt.cl</a></li>
+                        </ul>
                     </div>
                     
-                    <ul>
-                        <li><a href="#">Chile, Puerto Montt</a></li>
-                        <li><a href="#">18  Agosto 1995</a></li>
-                        <li><a href="#">26 Años</a></li>
-                        <li><a href="#">Ingeniería en informática</a></li>
-                        <li><a href="#">Camilo@highlyt.cl</a></li>
-                    </ul>
+                    
                 </div>
                 <div class="card card-right">
                     <div class="img-profile">
@@ -134,5 +139,5 @@
         <p>Todos los Derechos Reservados.</p>
     </footer>   
     <script src="assets/js/app.js"></script>
-</body>
+    </body>
 </html>
